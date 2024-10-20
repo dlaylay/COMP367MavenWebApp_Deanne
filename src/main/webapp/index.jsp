@@ -10,9 +10,9 @@
 
             // Determine the greeting based on the current hour
             if (hour < 12) {
-                greeting = `Good morning, ${userName}, Welcome to COMP367`;
+                greeting = `Good morning, ${userName}! Welcome to COMP367`;
             } else {
-                greeting = `Good afternoon, ${userName}, Welcome to COMP367`;
+                greeting = `Good afternoon, ${userName}! Welcome to COMP367`;
             }
 
             // Display the greeting in the HTML
