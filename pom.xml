@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
   <artifactId>COMP367MavenWebApp_Deanne</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>COMP367MavenWebApp_Deanne Maven Webapp</name>
   <url>http://maven.apache.org</url>
