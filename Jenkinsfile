@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         DOCKERHUB_PWD = credentials('CredentialID_DockerHubPwd')
+        DOCKERHUB_USER = 'osmdee' 
     }
     stages {
         // Check out stage
@@ -32,8 +33,7 @@ pipeline {
         stage("Docker login") {
             steps {
                 script {
-                    // Step d: Docker login using Jenkins credentials
-                    bat "docker login -u $osmdee -p $DOCKERHUB_PWD"
+                    bat "docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PWD"
                 }
             }
         }
