@@ -1,32 +1,30 @@
 pipeline {
-        agent any
-        tools {
-            maven 'MAVEN3'
-            jdk 'JDK'
-        }
-        stages {
-            stage('Checkout') {
-                steps {
-                    git branch: 'master', url: 'https://github.com/dlaylay/COMP367MavenWebApp_Deanne.git'
-                }
-            }
-            stage('Maven Build') {
-                steps {
-                    bat 'mvn clean package'
-                }
-            }
-            stage('Test') {
-                steps {
-                    bat 'mvn test'
-                }
+    agent any
+    tools {
+        maven "MAVEN3"
+    }
+    stages {
+        stage("Check out") {
+            steps {
+                git branch: 'master', url: 'https://github.com/dlaylay/COMP367MavenWebApp_Deanne'
             }
         }
-        post {
-            success {
-                echo 'Build and test stages completed successfully!'
-            }
-            failure {
-                echo 'Build failed.'
+        stage("Build maven project") {
+            steps {
+                bat 'mvn clean install'
             }
         }
+        stage("Unit test") {
+            steps {
+                bat "mvn test"
+            }
+        }
+        stage("Docker build") {
+            steps {
+                script {
+                    bat 'docker build -t osmdee/comp367mavenwebapp_deanne:1.0 .'
+                }
+            }
+        }
+    }
 }
