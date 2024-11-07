@@ -5,5 +5,3 @@ COPY target/COMP367MavenWebApp_Deanne.war /usr/local/tomcat/webapps/COMP367Maven
 
 # Expose port 8080
 EXPOSE 8080
-
-#C:\Users\Lenovo\IdeaProjects\COMP367MavenWebApp_Deanne\target\COMP367MavenWebApp_Deanne.jar
